@@ -7,4 +7,5 @@ urlpatterns = [
     path('ocr/', views.ocr_api, name='ocr_api'),
     path('detect/', views.detect_api, name='detect_api'),
     path('translate/', views.translate_api, name='translate_api'),
+    path('imagetopdf/', views.imagetopdf, name='imagetopdf'),
 ]
