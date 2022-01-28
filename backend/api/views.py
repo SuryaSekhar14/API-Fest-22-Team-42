@@ -30,7 +30,7 @@ def ocr_api(request):
             img = Image.open(image)
             img = img.convert("RGB")
             img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-            pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR"
+            # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR"
             text = pytesseract.image_to_string(img)
             json_object["success"] = True
             json_object["text"] = text

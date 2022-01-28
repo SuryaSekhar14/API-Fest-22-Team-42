@@ -1,5 +1,5 @@
-from django.apps import AppConfig
+# from django.apps import AppConfig
 
 
-class OcrConfig(AppConfig):
-    name = 'ocr'
+# class OcrConfig(AppConfig):
+#     name = 'ocr'
