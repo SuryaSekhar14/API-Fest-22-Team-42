@@ -7,13 +7,13 @@ const Navbar = () => {
     // const handleOnClick = useCallback(() => navigate('/team', {replace: true}), [navigate]);
     const [show, setshow] = useState(false);
     return (
-        <div className="bg-indigo-50">
+        <div className="bg-gray-800">
             <div className="2xl:container 2xl:mx-auto py-5 lg:px-7 sm:px-6 py-6 px-4">
                 <nav>
                     <div className=" flex flex-row justify-between">
                         <div className=" flex space-x-3 items-center">
                             <img src={logo} alt="SADS apis" width="5%"/>
-                            <Link to='/' ><h1 className=" font-bold text-3xl leading-6 text-indigo-700">SAD APIs</h1></Link>
+                            <Link to='/' ><h1 className=" font-bold text-3xl leading-6 text-white">SADS APIs</h1></Link>
                         </div>
                         {/* For large (i.e. desktop and laptop sized screen) */}
                         {/* <div className="lg:flex hidden flex-auto justify-between flex-row">
