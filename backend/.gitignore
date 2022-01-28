@@ -1,0 +1,11 @@
+#Ignore Pycache
+api/__pycache__/
+backend/__pycache__/
+api/migrations/__pycache__/
+
+#Ignore DB
+db.sqlite3
+
+#Extras
+api/images/
+api/.env
