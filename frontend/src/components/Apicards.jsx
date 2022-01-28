@@ -8,7 +8,7 @@ const products = [
     {
       id: 1,
       name: 'Object Detection API',
-      href: '/',
+      href: '/APIpages/Ocr',
       imageSrc: obdec,
       imageAlt: "Upload and Image and get a list of objects present in the image",
       price: '$ 0.00 (PS: We are free!)',
@@ -16,7 +16,7 @@ const products = [
     },
     // More products...
   ]
-  
+ 
 const Apicards = () => {
     const navigate = useNavigate()
     return (
