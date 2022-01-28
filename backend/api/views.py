@@ -10,6 +10,7 @@ from PIL import Image
 import cv2
 import pytesseract
 import numpy as np
+import img2pdf
 from googletrans import Translator, constants
 
 @api_view(['GET'])
@@ -64,3 +65,15 @@ def translate_api(api_request):
             json_object['Translated'] = translated.text
             print(json_object)
     return JsonResponse(json_object)
+
+
+@api_view(['POST'])
+def imagetopdf(request):
+    if request.method == 'POST':
+        for f in request.FILES.getlist('image'):
+            with open("output.pdf", "wb") as file:
+                file.write(img2pdf.convert([f]))
+                print("img added")
+
+
+    return HttpResponse(status=status.HTTP_200_OK)
