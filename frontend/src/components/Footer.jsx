@@ -1,6 +1,6 @@
 import React from "react";
 
-const logo = require("../assets/img/logo.png");
+// const logo = require("../assets/img/logo.png");
 const Footer = () => {
     return (
         <div className="bg-gray-800">

@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
+import Typewriter from 'typewriter-effect';
 const logo = require("../assets/img/hero.png");
 const Hero = () => {
     return (
@@ -12,7 +13,25 @@ const Hero = () => {
                     <div  role="contentinfo"  className="w-full lg:w-1/2 h-full">
                         <p tabIndex="0" className="text-indigo-700 uppercase text-2xl mb-4">Want all the APIs @ one place</p>
                         <h1 tabIndex="0" className="text-indigo-700 text-4xl lg:text-8xl font-black mb-8">SADS are here.</h1>
-                        <p tabIndex="0" className="text-gray-800 font-regular text-xl mb-8">API with SADS. Made with ♥️ and fun by a group of Friends. <br/>We SADS are a group of students working on various ideas. This was made to access all the APIs of our projects at one place. Laziness worth coding for. (●'◡'●)
+                        <h3 tabIndex='0' className="text-indigo-700 text-2xl lg:text-2xl font-bold mb-8">We do :
+                        <Typewriter
+                        options={{
+                            strings: ['Object Detection', 'Translate','PDFs, yes!','OCR','Auto Image Downloader, this too!'],
+                            autoStart: true,
+                            loop: true,
+                        }}
+                        /></h3>
+                        <p tabIndex="0" className="text-gray-800 font-regular text-xl mb-8">API with SADS. Made with ♥️ and fun by a group of Friends. <br/>We SADS are a group of students working on various ideas. This was made to access all the APIs of our projects at one place. Laziness worth coding for. 
+                        <br/>
+                        <div className="text-indigo-600 text-xl font-bold">
+                        <Typewriter
+                        options={{
+                            strings: ['( •̀ ω •́ )✧', '(●\'◡\'●)','ヾ(•ω•`)o','(～￣▽￣)～','(づ￣ 3￣)づ'],
+                            autoStart: true,
+                            loop: true,
+                        }}
+                        />
+                        </div>
                         </p>
                     </div>
                 </div>

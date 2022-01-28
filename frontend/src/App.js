@@ -1,5 +1,5 @@
 import './App.css';
-import {MainLayout, Error, Team, Apis, Ocr} from './pages/index';
+import {MainLayout, Error, Team, Apis, Ocr, Trans} from './pages/index';
 import {Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
         <Route path='/apis' element={<Apis />} />
         <Route path='/apis' element={<Apis />} />
         <Route path='/apipage/ocr' element={<Ocr />} />
+        <Route path='/apipage/translate' element={<Trans/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
     </div>
