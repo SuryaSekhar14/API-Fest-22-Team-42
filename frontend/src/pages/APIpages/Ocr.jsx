@@ -1,6 +1,5 @@
 import React from 'react';
-import { Footer, Navbar } from '../../components';
-import OcrComp from '../../components/OCR/OcrComp';
+import { Footer, Navbar, OcrComp} from '../../components';
 
 const Ocr = () => {
     return (
