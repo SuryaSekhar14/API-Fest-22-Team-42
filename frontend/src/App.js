@@ -11,7 +11,7 @@ function App() {
         <Route path='/team' element={<Team />} />
         <Route path='/apis' element={<Apis />} />
         <Route path='/apis' element={<Apis />} />
-        <Route path='/apipage/ocr' element={<Ocr />} />
+        <Route path='/apipages/ocr' element={<Ocr />} />
         <Route path="*" element={<Error/>} />
       </Routes>
     </div>

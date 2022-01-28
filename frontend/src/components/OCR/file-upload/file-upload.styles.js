@@ -170,7 +170,6 @@ export const FileMetaData = styled.div`
 
 export const RemoveFileIcon = styled.i`
   cursor: pointer;
-
   &:hover {
     transform: scale(1.3);
   }
