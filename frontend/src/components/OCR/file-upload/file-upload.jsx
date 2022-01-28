@@ -10,7 +10,7 @@ import {
   PreviewList,
   FileMetaData,
   RemoveFileIcon,
-  InputLabel
+  InputLabel,
 } from "./file-upload.styles";
 
 const KILO_BYTES_PER_BYTE = 1000;
@@ -85,7 +85,6 @@ const FileUpload = ({
         />
       </FileUploadContainer>
       <FilePreviewContainer>
-        <span>To Upload</span>
         <PreviewList>
           {Object.keys(files).map((fileName, index) => {
             let file = files[fileName];
