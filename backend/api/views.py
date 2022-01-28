@@ -10,6 +10,7 @@ from PIL import Image
 import cv2
 import pytesseract
 import numpy as np
+from googletrans import Translator, constants
 
 @api_view(['GET'])
 def getData(request):
@@ -30,7 +31,6 @@ def ocr_api(request):
             img = Image.open(image)
             img = img.convert("RGB")
             img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
-            # pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR"
             text = pytesseract.image_to_string(img)
             json_object["success"] = True
             json_object["text"] = text
@@ -38,4 +38,29 @@ def ocr_api(request):
             json_object["message"] = "No image found"
     return JsonResponse(json_object)
 
+@api_view(['POST'])
+def detect_api(request):
+    json_object = {'success': False}
+    if request.method == "POST":
+        text = str(request.POST.get("text"))
+        translator = Translator(raise_exception=True)
+        translated = translator.detect(text)
+        json_object['success'] = True
+        json_object['Detected'] = translated.lang
+        print(json_object)
+    return JsonResponse(json_object)
 
+@api_view(['POST'])
+def translate_api(api_request):
+    json_object = {'success': False}
+    if api_request.method == "POST":
+        if api_request.POST.get("text") is not None:
+            text = str(api_request.POST.get("text"))
+            destlang = str(api_request.POST.get("destlang"))
+            print(text+" "+destlang)
+            translator = Translator()
+            translated = translator.translate(text, dest=destlang)
+            json_object['success'] = True
+            json_object['Translated'] = translated.text
+            print(json_object)
+    return JsonResponse(json_object)
