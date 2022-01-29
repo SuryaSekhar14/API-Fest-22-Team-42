@@ -85,11 +85,14 @@ const Translate = () => {
                                 </select>
                                 {/* {console.log(iLang.value)}
                                 {console.log(oLang.value)} */}
+                                <button type="button" className="py-2 px-4 mt-4 bg-indigo-200 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                Detect Language
+                                </button>
                                 <button type="button" className="py-2 px-4 mt-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 Translate
                                 </button>
                             </div>
-                            <div className="w-full lg:w-1/3 px-12 border-t border-b lg:border-t-0 lg:border-b-0 lg:border-l lg:border-r border-gray-300 flex flex-col items-center py-10">
+                            <div className="w-full lg:w-1/3 flex-col flex justify-center items-center px-12 py-8">
                                 {/* <div className="mb-3 w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center cursor-pointer text-indigo-700">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-stack" width={48} height={48} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -111,9 +114,10 @@ const Translate = () => {
                                     <div className="bg-gray-200 text-gray-600 dark:bg-gray-700 rounded mx-2 text-xs leading-3 py-2 px-3">Interface</div>
                                     <div className="bg-gray-200 text-gray-600 dark:bg-gray-700 rounded text-xs leading-3 py-2 px-3">Interface</div>
                                 </div> */}
-                                <p className="py-2 px-4 mb-4 rounded-lg bg-indigo-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 ">
+                                <p className="mb-6 text-2xl text-indigo-200 w-full font-bold text-left">
                                 Input Language
                                 </p>
+                                
                                 <label className="text-gray-700" htmlFor="name">
                                     <textarea className="flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-xl text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-indigo-800 focus:border-transparent" id="input" placeholder="here we go..." name="iLang" rows={10} cols={60} defaultValue={""} />
                                 </label>
@@ -149,7 +153,7 @@ const Translate = () => {
                                         <path fill="currentColor" d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z" />
                                     </svg>
                                 </div> */}
-                                <p className="py-2 px-4 mb-4 rounded-lg bg-indigo-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 ">
+                                <p className="mb-6 text-2xl text-indigo-200 w-full font-bold text-left">
                                 Output Language
                                 </p>
                                 <label className="text-gray-700" htmlFor="name">
