@@ -85,7 +85,7 @@ def imagetopdf(request):
     print(x)
     merger = PdfFileMerger()
     for pdf in x:
-        with open(str(pdf), 'rb') as source:
+        with open("outputs/"+pdf, 'rb') as source:
             tmp = PdfFileReader(source)
             merger.append(tmp)
             print("merging")
