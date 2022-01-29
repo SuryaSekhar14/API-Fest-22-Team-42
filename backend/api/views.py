@@ -7,6 +7,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 import os, shutil
+import smtpserver
 
 from PIL import Image
 import cv2
@@ -14,6 +15,7 @@ import pytesseract
 import numpy as np
 import img2pdf
 from googletrans import Translator, constants
+from PyPDF2 import PdfFileMerger, PdfFileReader
 
 @api_view(['GET'])
 def getData(request):
@@ -79,6 +81,23 @@ def imagetopdf(request):
             with open("outputs/"+f"output_{f.name}.pdf", "wb") as file:
                 file.write(img2pdf.convert([f]))
                 print("img added")
+
+    x = [a for a in os.listdir("outputs") if a.endswith(".pdf")]
+    print(x)
+    merger = PdfFileMerger()
+    for pdf in x:
+        with open("outputs/"+pdf, 'rb') as source:
+            tmp = PdfFileReader(source)
+            merger.append(tmp)
+            print("merging")
+    
+    with open("outputs/"+"combined.pdf", "wb") as file:
+        merger.write(file)
+    file.close()
+    print("pdf added")
+    
+    email = request.POST.get("email")
+    smtpserver.sendmail(email)
 
     return HttpResponse(status=status.HTTP_200_OK)
 

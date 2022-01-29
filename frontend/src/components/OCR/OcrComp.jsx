@@ -82,7 +82,7 @@ const OcrComp = () => {
                                     </span>
                                     Las Vegas, Nevada
                                 </p> */}
-                                <p className="text-gray-600 text-sm tracking-normal font-normal mb-8 text-center w-10/12">Here is the OCR API, Select the Image and press submit </p>
+                                <p className="text-gray-600 text-sm tracking-normal font-normal mb-8 text-center w-10/12">Here is the OCR API<br/>Select the Image and press submit </p>
                                 {/* <div className="flex items-start">
                                     <div className>
                                         <h2 className="text-gray-600 text-2xl leading-6 mb-2 text-center">82</h2>
@@ -120,9 +120,9 @@ const OcrComp = () => {
                                     </label> */}
                                 {/* <input id="email" className="text-gray-600 bg-white focus:outline-none focus:border focus:border-indigo-700 bg-white font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow" placeholder="Enter you Email" onChange={(e) => validateEmail(e)}/> */}
                                 {/* <span className="text-sm mt-1 text-gray-600 font-semibold">{emailError}</span> */}
-                                <button type="button" className="py-2 px-4 mt-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                {/* <button type="button" className="py-2 px-4 mt-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                  Submit ヾ(•ω•`)o
-                                </button>
+                                </button> */}
                             </div>
                             <div className="w-full lg:w-1/2 px-6 border-t border-b lg:border-t-0 border-gray-300 flex flex-col items-center py-6">
                             <Dropzone
@@ -132,7 +132,7 @@ const OcrComp = () => {
                                 getUploadParams={fileParams}
                                 getFilesFromEvent={getFilesFromEvent}
                                 accept="image/*"
-                                maxFiles={5}
+                                maxFiles={1}
                                 inputContent="Drop A File"
                                 className="w-full h-full"
                                 styles={{
