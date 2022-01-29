@@ -4,8 +4,7 @@ import Dropzone from 'react-dropzone-uploader'
 import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 import validator from 'validator'
 import { useNavigate } from 'react-router-dom';
-// import axios from 'axios';
-// import fs from 'fs'
+
 
 const logo = require('../../assets/img/pdf.jpg');
 
