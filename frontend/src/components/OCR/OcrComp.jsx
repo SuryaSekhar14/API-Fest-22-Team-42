@@ -1,23 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import { getDroppedOrSelectedFiles } from 'html5-file-selector'
-import validator from 'validator'
+// import validator from 'validator'
 
 const logo = require('../../assets/img/features1.png');
 
 const OcrComp = () => {
 
-    const [emailError, setEmailError] = useState('')
-    const validateEmail = (e) => {
-      var email = e.target.value
+    // const [emailError, setEmailError] = useState('')
+    // const validateEmail = (e) => {
+    //   var email = e.target.value
     
-      if (validator.isEmail(email)) {
-        setEmailError('Valid Email (づ￣ 3￣)づ')
-      } else {
-        setEmailError('Enter valid Email! ◑﹏◐')
-      }
-    }  
+    //   if (validator.isEmail(email)) {
+    //     setEmailError('Valid Email (づ￣ 3￣)づ')
+    //   } else {
+    //     setEmailError('Enter valid Email! ◑﹏◐')
+    //   }
+    // }  
 
     const fileParams = ({ meta }) => {
         return { url: 'https://httpbin.org/post' }
