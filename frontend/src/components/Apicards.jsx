@@ -1,7 +1,7 @@
 import {useNavigate} from 'react-router-dom'
 
 
-const obdec = require('../assets/img/obdec.jpg')
+const obdec = require('../assets/img/features1.png')
 const trans = require('../assets/img/translate.jpg')
 const pdf = require('../assets/img/pdf.jpg')
 
