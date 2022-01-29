@@ -8,35 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 const logo = require('../../assets/img/pdf.jpg');
 
-// const pdfapi = () => {
-//     var axios = require('axios');
-//     var FormData = require('form-data');
-//     var fs = require('fs');
-//     var data = new FormData();
-//     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/image.png'));
-//     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/unknown.png'));
-//     data.append('email', 'something@mail.com');
-
-//     var config = {
-//     method: 'post',
-//     url: '127.0.0.1:8000/api/imagetopdf/',
-//     headers: { 
-//         ...data.getHeaders()
-//     },
-//     data : data
-//     };
-
-//     axios(config)
-//     .then(function (response) {
-//     console.log(JSON.stringify(response.data));
-//     })
-//     .catch(function (error) {
-//     console.log(error);
-// });
-
-
-// }
-
 var emailDone = '';
 
 const PdfCombiner = () => {
