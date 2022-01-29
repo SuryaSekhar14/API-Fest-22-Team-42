@@ -7,7 +7,7 @@ const trans = require('../assets/img/translate.jpg')
 const products = [
     {
       id: 1,
-      name: 'Object Detection API',
+      name: 'Optical Character Recognition API',
       href: '/apipage/ocr',
       imageSrc: obdec,
       imageAlt: "Upload and Image and get a list of objects present in the image",

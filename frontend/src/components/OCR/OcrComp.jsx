@@ -16,7 +16,7 @@ const OcrComp = () => {
   return (
     <div >
         <div class="flex justify-center">
-            <h1 class="text-5xl font-medium leading-tight mt-0 mb-2 text-blue-600">OCR on SAD API</h1>
+            <h1 class="text-5xl font-medium leading-tight mt-0 mb-2 text-blue-600">OCR on SAD</h1>
         </div>
       <form onSubmit={handleSubmit}>
         <FileUpload
