@@ -44,8 +44,9 @@ def detect_api(request):
     json_object = {'success': False}
     if request.method == "POST":
         text = str(request.POST.get("text"))
-        translator = Translator(raise_exception=True)
+        translator = Translator(service_urls=['translate.googleapis.com'])
         translated = translator.detect(text)
+        print(translated)
         json_object['success'] = True
         json_object['Detected'] = translated.lang
         print(json_object)
@@ -59,7 +60,7 @@ def translate_api(api_request):
             text = str(api_request.POST.get("text"))
             destlang = str(api_request.POST.get("destlang"))
             print(text+" "+destlang)
-            translator = Translator()
+            translator = Translator(service_urls=['translate.googleapis.com'])
             translated = translator.translate(text, dest=destlang)
             json_object['success'] = True
             json_object['Translated'] = translated.text
