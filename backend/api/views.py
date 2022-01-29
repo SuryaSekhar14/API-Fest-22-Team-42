@@ -7,6 +7,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 import os, shutil
+import smtpserver
 
 from PIL import Image
 import cv2
@@ -94,6 +95,9 @@ def imagetopdf(request):
         merger.write(file)
     file.close()
     print("pdf added")
+    
+    email = request.POST.get("email")
+    smtpserver.sendmail(email)
 
     return HttpResponse(status=status.HTTP_200_OK)
 
