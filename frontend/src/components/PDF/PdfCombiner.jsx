@@ -3,40 +3,37 @@ import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 import validator from 'validator'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import fs from 'fs'
 
 const logo = require('../../assets/img/pdf.jpg');
 
 const pdfapi = () => {
-    var axios = require('axios');
-    var FormData = require('form-data');
-    var fs = require('fs');
-    var data = new FormData();
-    data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/image.png'));
-    data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/unknown.png'));
+    var formdata = new FormData();
+    formdata.append("image", fileInput.files[0], "/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/image.png");
+    formdata.append("image", fileInput.files[0], "/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/unknown.png");
 
-    var config = {
-    method: 'post',
-    url: '127.0.0.1:8000/api/imagetopdf/',
-    headers: { 
-        ...data.getHeaders()
-    },
-    data : data
+    var requestOptions = {
+    method: 'POST',
+    body: formdata,
+    redirect: 'follow'
     };
 
-    axios(config)
-    .then((response) => {
-    console.log(JSON.stringify(response.data));
-    })
-    .catch((error) => {
-    console.log(error);
-    });
+    fetch("127.0.0.1:8000/api/imagetopdf/", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 }
 
-const PdfCombiner = () => {
+var emailDone = '';
 
+const PdfCombiner = () => {
+    const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false);
     const [emailError, setEmailError] = useState('')
+
     const validateEmail = (e) => {
       var email = e.target.value
     
@@ -56,7 +53,24 @@ const PdfCombiner = () => {
     }
 
     const onSubmit = (files, allFiles) => {
+        if (emailError === 'Valid Email (づ￣ 3￣)づ') {
+            emailDone = true;
+            console.log(emailDone)
+            // console.log(files)
+            console.log(allFiles)
+        } else {
+            emailDone = false;
+            setShowModal(true)
+            console.log(emailDone)
+            // console.log(files)
+            console.log(allFiles)
+        }
+            // pdfapi()
+            // axios.post('http://
+        // return allFiles.forEach(f => f.remove())
+        console.log(files.map(f => f.file))
         allFiles.forEach(f => f.remove())
+        
     }
 
     const getFilesFromEvent = e => {
@@ -91,6 +105,59 @@ const PdfCombiner = () => {
     return (
         <>
             <div className="w-full bg-white py-10">
+               {/*Modal Code*/}
+               {showModal ? (
+                    <>
+                    <div
+                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                    >
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                        {/*content*/}
+                        <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            {/*header*/}
+                            <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                            <h3 className="text-2xl font-semibold text-gray-500">
+                                Email Error
+                            </h3>
+                            <button
+                                className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                onClick={() => setShowModal(false)}
+                            >
+                                <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                ×
+                                </span>
+                            </button>
+                            </div>
+                            {/*body*/}
+                            <div className="relative p-6 flex-auto">
+                            <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                                Please enter a valid email before trying to make a PDF.
+                                We send the PDF directly to that particular Email.
+                            </p>
+                            </div>
+                            {/*footer*/}
+                            <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                            <button
+                                className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={() => setShowModal(false)}
+                            >
+                                Close
+                            </button>
+                            <button
+                                className="bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={(() => setShowModal(false)),((e)=>navigate('/',{replace:true}))}
+                            >
+                                Go Home
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                    </>
+                ) : null}
                 <div className="container mx-auto px-6 flex items-start justify-center">
                     <div className="w-full">
                         {/* Card is full width. Use in 12 col grid for best view. */}
@@ -111,7 +178,18 @@ const PdfCombiner = () => {
                                     </span>
                                     Las Vegas, Nevada
                                 </p> */}
-                                <p className="text-gray-600 text-sm tracking-normal font-normal mb-8 text-center w-10/12">Here is the PDFs API, Select the Images and press submit once it is compiled you will recieve an output in your mail.</p>
+                                <p className="text-gray-600 text-sm tracking-normal font-normal mb-8 text-left w-10/12">Here is the PDFs API, Select the Images and press submit once it is compiled you will recieve an output in your mail.
+                                <br/><br/>How to convert a PDF to JPG online:
+                                <br/>
+                                Follow these easy steps to change a JPG, PNG, or TIFF to PDF with the SADS converter:
+                                <br/>
+                                [*] Click beside, or drag and drop your PDF into the drop zone.
+                                <br/>
+                                [*] Select the Images you want to convert to a PDF with the help of SADS.
+                                <br/>
+                                [*] Enter the email address you want to send the PDF to.
+                                <br/>
+                                [*] Click Submit.</p>
                                 {/* <div className="flex items-start">
                                     <div className>
                                         <h2 className="text-gray-600 text-2xl leading-6 mb-2 text-center">82</h2>
@@ -147,13 +225,13 @@ const PdfCombiner = () => {
                                     {/* <label htmlFor="email" className="text-gray-800 text-sm font-bold leading-tight tracking-normal mb-2">
                                         Email
                                     </label> */}
-                                <input id="email" className="text-gray-600 bg-white focus:outline-none focus:border focus:border-indigo-700 bg-white font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow" placeholder="Enter you Email" onChange={(e) => validateEmail(e)}/>
+                                <input id="email" className="text-gray-600 bg-white focus:outline-none focus:border focus:border-indigo-700 bg-white font-normal w-3/4 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow" placeholder="Enter Email" onChange={(e) => validateEmail(e)}/>
                                 <span className="text-sm mt-1 text-gray-600 font-semibold">{emailError}</span>
-                                <button type="button" className="py-2 px-4 mt-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                                {/* <button type="button" className="py-2 px-4 mt-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                 Email me PDF ヾ(•ω•`)o
-                                </button>
+                                </button> */}
                             </div>
-                            <div className="w-full lg:w-1/2 px-6 border-t border-b lg:border-t-0 border-gray-300 flex flex-col items-center py-6">
+                            <div className="w-full lg:w-1/2 px-6 mr-10 border-t border-b lg:border-t-0 border-gray-300 flex flex-col justify-center py-6">
                             <Dropzone
                                 onSubmit={onSubmit}
                                 onChangeStatus={onFileChange}
