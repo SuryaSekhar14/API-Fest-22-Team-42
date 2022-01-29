@@ -6,6 +6,8 @@ from rest_framework.views import APIView
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
+import os, shutil
+
 from PIL import Image
 import cv2
 import pytesseract
@@ -71,10 +73,27 @@ def translate_api(api_request):
 @api_view(['POST'])
 def imagetopdf(request):
     if request.method == 'POST':
+        print("ok")
+        clear_files("outputs")
         for f in request.FILES.getlist('image'):
-            with open(f"output_{f.name}.pdf", "wb") as file:
+            with open("outputs/"+f"output_{f.name}.pdf", "wb") as file:
                 file.write(img2pdf.convert([f]))
                 print("img added")
 
-
     return HttpResponse(status=status.HTTP_200_OK)
+
+
+def clear_files(dir):
+    folder = dir
+    try:
+        for filename in os.listdir(folder):
+            file_path = os.path.join(folder, filename)
+            try:
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                print('Failed to delete %s. Reason: %s' % (file_path, e))
+    except Exception as error:
+        os.mkdir(dir)
