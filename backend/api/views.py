@@ -72,7 +72,7 @@ def translate_api(api_request):
 def imagetopdf(request):
     if request.method == 'POST':
         for f in request.FILES.getlist('image'):
-            with open("output.pdf", "wb") as file:
+            with open(f"output_{f.name}.pdf", "wb") as file:
                 file.write(img2pdf.convert([f]))
                 print("img added")
 
