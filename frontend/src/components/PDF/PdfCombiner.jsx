@@ -4,14 +4,14 @@ import Dropzone from 'react-dropzone-uploader'
 import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 import validator from 'validator'
 import axios from 'axios';
-import fs from 'fs'
+import {fs} from 'fs'
 
 const logo = require('../../assets/img/pdf.jpg');
 
 const pdfapi = () => {
-    var axios = require('axios');
+    // var axios = require('axios');
     var FormData = require('form-data');
-    var fs = require('fs');
+    // var fs = require('fs');
     var data = new FormData();
     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/image.png'));
     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/unknown.png'));
