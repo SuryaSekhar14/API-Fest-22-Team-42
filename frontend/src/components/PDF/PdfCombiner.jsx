@@ -5,6 +5,7 @@ import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 import validator from 'validator'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+<<<<<<< HEAD
 import {fs} from 'fs'
 
 const logo = require('../../assets/img/pdf.jpg');
@@ -36,12 +37,40 @@ const pdfapi = () => {
     redirect: 'follow'
 >>>>>>> b4b0c20c155b57fef3c7ad7b26ab9fec9e942129
     };
+=======
+// import fs from 'fs'
 
-    fetch("127.0.0.1:8000/api/imagetopdf/", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-}
+const logo = require('../../assets/img/pdf.jpg');
+
+// const pdfapi = () => {
+//     var axios = require('axios');
+//     var FormData = require('form-data');
+//     var fs = require('fs');
+//     var data = new FormData();
+//     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/image.png'));
+//     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/unknown.png'));
+//     data.append('email', 'something@mail.com');
+
+//     var config = {
+//     method: 'post',
+//     url: '127.0.0.1:8000/api/imagetopdf/',
+//     headers: { 
+//         ...data.getHeaders()
+//     },
+//     data : data
+//     };
+>>>>>>> 6be549e0ebf93158a0517db3e39d22dfeae7c2a3
+
+//     axios(config)
+//     .then(function (response) {
+//     console.log(JSON.stringify(response.data));
+//     })
+//     .catch(function (error) {
+//     console.log(error);
+// });
+
+
+// }
 
 var emailDone = '';
 
@@ -50,7 +79,7 @@ const PdfCombiner = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [emailError, setEmailError] = useState('')
-
+    const email = useState('')
     const validateEmail = (e) => {
       var email = e.target.value
     
