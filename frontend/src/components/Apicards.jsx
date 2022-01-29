@@ -47,11 +47,11 @@ const Apicards = () => {
             {products.map((product) => (
                 <div className="shadow-2xl rounded-lg">
                 <div key={product.id} onClick={(e)=>navigate(product.href,{replace:true})} className="group relative">
-                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 border rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <div className="h-full bg-gray-200 aspect-w-1 aspect-h-1 border rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
                     <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="object-center object-cover h-full rounded-lg"
+                    className="object-center object-cover w-full h-full rounded-lg"
                     />
                 </div>
                 <div className="mt-4 flex justify-center">

@@ -8,22 +8,21 @@ import { useNavigate } from 'react-router-dom';
 
 const logo = require('../../assets/img/pdf.jpg');
 
-var emailDone = '';
-
+var emailDone = false;
+var eid = '';
 const PdfCombiner = () => {
     const navigate = useNavigate();
-
     const [showModal, setShowModal] = useState(false);
+    const [emailModal, setEmailModal] = useState(false);
     const [emailError, setEmailError] = useState('')
-    const eid = useState('')
     const validateEmail = (e) => {
-      var email = e.target.value
-    
-      if (validator.isEmail(email)) {
-        setEmailError('Valid Email (づ￣ 3￣)づ')
-      } else {
-        setEmailError('Enter valid Email! ◑﹏◐')
-      }
+        var email = e.target.value
+        if (validator.isEmail(email)) {
+            setEmailError('Valid Email (づ￣ 3￣)づ')
+            eid = email
+        } else {
+            setEmailError('Enter valid Email! ◑﹏◐')
+        }
     }  
 
     const fileParams = ({ meta }) => {
@@ -37,14 +36,14 @@ const PdfCombiner = () => {
     const onSubmit = (files, allFiles) => {
         if (emailError === 'Valid Email (づ￣ 3￣)づ') {
             emailDone = true;
-            console.log(emailDone)
-            // console.log(files)
-            console.log(allFiles)
-            pdfapi(files, 'dhriteshbhagat@gmail.com')
+            // console.log(allFiles)
+            // console.log(eid)
+            setEmailModal(true)
+            pdfapi(files, eid)
         } else {
             emailDone = false;
             setShowModal(true)
-            console.log(emailDone)
+            // console.log(emailDone)
             // console.log(files)
             // console.log(allFiles)
         }
@@ -54,10 +53,6 @@ const PdfCombiner = () => {
         console.log(files.map(f => f.file))
         allFiles.forEach(f => f.remove())
         
-    }
-
-    const seteid = (e) => {
-        eid = e.target.value
     }
 
     const pdfapi = (files,eid) => {
@@ -158,12 +153,52 @@ const PdfCombiner = () => {
                             >
                                 Close
                             </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                    </>
+                ) : null}
+                {emailModal ? (
+                    <>
+                    <div
+                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                    >
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                        {/*content*/}
+                        <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            {/*header*/}
+                            <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                            <h3 className="text-2xl font-semibold text-gray-500">
+                                Email Sent
+                            </h3>
                             <button
-                                className="bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                type="button"
-                                onClick={(() => setShowModal(false)),((e)=>navigate('/',{replace:true}))}
+                                className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                onClick={() => setShowModal(false)}
                             >
-                                Go Home
+                                <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                ×
+                                </span>
+                            </button>
+                            </div>
+                            {/*body*/}
+                            <div className="relative p-6 flex-auto">
+                            <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                                We have sent you the Email with the PDF.
+                                <br/>
+                                Please check your Email and download the PDF. <br/>
+                                ( •̀ ω •́ )✧
+                            </p>
+                            </div>
+                            {/*footer*/}
+                            <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                            <button
+                                className="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={() => navigate('/',{replace:true})}
+                            >
+                                Close
                             </button>
                             </div>
                         </div>
@@ -172,6 +207,7 @@ const PdfCombiner = () => {
                     <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                     </>
                 ) : null}
+               
                 <div className="container mx-auto px-6 flex items-start justify-center">
                     <div className="w-full">
                         {/* Card is full width. Use in 12 col grid for best view. */}
@@ -194,8 +230,9 @@ const PdfCombiner = () => {
                                 [*] Enter the email address you want to send the PDF to.
                                 <br/>
                                 [*] Click Submit.</p>
-                                <input id="email" className="text-gray-600 bg-white focus:outline-none focus:border focus:border-indigo-700 bg-white font-normal w-3/4 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow" placeholder="Enter Email" onChange={(e) => validateEmail(e)}/>
+                                <input id="email" className="text-gray-600 bg-white focus:outline-none focus:border focus:border-indigo-700 bg-white font-normal w-3/4 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border shadow" placeholder="Enter Email" onChange={((e) => (validateEmail(e)))}/>
                                 <span className="text-sm mt-1 text-gray-600 font-semibold">{emailError}</span>
+                                {}
                             </div>
                             <div className="w-full lg:w-1/2 px-6 mr-10 border-t border-b lg:border-t-0 border-gray-300 flex flex-col justify-center py-6">
                             <Dropzone
