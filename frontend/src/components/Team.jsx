@@ -21,28 +21,28 @@ const Team = () => {
                 <div className="flex flex-wrap items-stretch xl:justify-between justify-center mt-16 xl:gap-6 gap-4"> 
                     <div className="lg:w-96 w-80">
                         <img src={surya} className="h-72 w-full object-cover object-center rounded-t-md" alt="woman smiling" />
-                        <div className="bg-white shadow-md rounded-md py-4 text-center">
+                        <div className="bg-white shadow-lg rounded-md py-4 text-center">
                             <p className="text-base font-medium leading-6 text-gray-600">Surya Sekhar Datta</p>
                             {/* <p className="text-base leading-6 mt-2 text-gray-800">Designer</p> */}
                         </div>
                     </div>
                     <div className="lg:w-96 w-80">
                         <img src={dhritesh} className="h-72 w-full object-cover object-center rounded-t-md" alt="woman in black dress" />
-                        <div className="bg-white shadow-md rounded-md py-4 text-center">
+                        <div className="bg-white shadow-lg rounded-md py-4 text-center">
                             <p className="text-base font-medium leading-6 text-gray-600">Dhritesh Bhagat</p>
                             {/* <p className="text-base leading-6 mt-2 text-gray-800">Designer</p> */}
                         </div>
                     </div>
                     <div className="lg:w-96 w-80">
                         <img src={swapnanil} className="h-72 w-full object-cover object-center rounded-t-md" alt="woman smiling" />
-                        <div className="bg-white shadow-md rounded-md py-4 text-center">
+                        <div className="bg-white shadow-lg rounded-md py-4 text-center">
                             <p className="text-base font-medium leading-6 text-gray-600">Swapnanil Ray</p>
                             {/* <p className="text-base leading-6 mt-2 text-gray-800">Writer</p> */}
                         </div>
                     </div>
                     <div className="lg:w-96 w-80">
                         <img src={arnab} className="h-72 w-full object-cover object-center rounded-t-md" alt="woman smiling" />
-                        <div className="bg-white shadow-md rounded-md py-4 text-center">
+                        <div className="bg-white shadow-lg rounded-md py-4 text-center">
                             <p className="text-base font-medium leading-6 text-gray-600">Arnab Maity</p>
                             {/* <p className="text-base leading-6 mt-2 text-gray-800">Developer</p> */}
                         </div>

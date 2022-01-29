@@ -16,7 +16,7 @@ const Hero = () => {
                         <h3 tabIndex='0' className="text-indigo-700 text-2xl lg:text-2xl font-bold mb-8">We do :
                         <Typewriter
                         options={{
-                            strings: ['Object Detection', 'Translate','PDFs, yes!','OCR','Auto Image Downloader, this too!'],
+                            strings: ['Translate','PDFs, yes!','OCR','Auto Image Downloader, this too!'],
                             autoStart: true,
                             loop: true,
                         }}

@@ -6,11 +6,11 @@ const Footer = () => {
         <div className="bg-gray-800">
         <div className="mx-auto container xl:px-20 lg:px-12 sm:px-6 py-12">
             <div className="flex flex-col items-center justify-center">
-                <div className="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8">
-                    <p className="hover:text-gray-100 text-base cursor-pointer leading-4 text-white">About</p>
-                    <p className="hover:text-gray-100 text-base cursor-pointer leading-4 text-white">Contact us</p>
+                <div className="flex flex-wrap sm:gap-10 gap-8 items-center justify-center">
+                    <a href="/team" className="hover:text-gray-100 text-base cursor-pointer leading-4 text-white">About the Team (●'◡'●)</a>
+                    {/* <p className="hover:text-gray-100 text-base cursor-pointer leading-4 text-white">Contact us</p>
                     <p className="hover:text-gray-100 text-base cursor-pointer leading-4 text-white">Terms of Service</p>
-                    <p className="hover:text-gray-00 text-base cursor-pointer leading-4 text-white">Privacy Policy</p>
+                    <p className="hover:text-gray-00 text-base cursor-pointer leading-4 text-white">Privacy Policy</p> */}
                 </div>
                 <div className="flex items-center gap-x-8 mt-6">
                     <div className="cursor-pointer">

@@ -57,8 +57,8 @@ const Navbar = () => {
                                     <path d="M7 8.75C7.9665 8.75 8.75 7.9665 8.75 7C8.75 6.0335 7.9665 5.25 7 5.25C6.0335 5.25 5.25 6.0335 5.25 7C5.25 7.9665 6.0335 8.75 7 8.75Z" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg> */}
                             </button>
-                            <button className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-gray-800 bg-white focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
-                                <p>Docs</p>
+                            <button onClick={(e)=>navigate('/apis', {replace:true})} className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-gray-800 bg-white focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
+                                <p>APIs</p>
                                 {/* <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.25 8.75V11.0833C12.25 11.3928 12.1271 11.6895 11.9083 11.9083C11.6895 12.1271 11.3928 12.25 11.0833 12.25H2.91667C2.60725 12.25 2.3105 12.1271 2.09171 11.9083C1.87292 11.6895 1.75 11.3928 1.75 11.0833V8.75" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M9.91683 4.66667L7.00016 1.75L4.0835 4.66667" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
@@ -66,8 +66,8 @@ const Navbar = () => {
                                 </svg> */}
                             </button>
                             {/* Save button */}
-                            <button onClick={(e)=>navigate('/apis', {replace:true})} className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:bg-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hover:bg-indigo-600 duration-150 justify-center items-center">
-                                <p>APIs</p>
+                            <button onClick={(e)=>window.open('https://www.postman.com/restless-flare-713473/workspace/api-fest-team-42')} className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:bg-indigo-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 hover:bg-indigo-600 duration-150 justify-center items-center">
+                                <p>Postman</p>
                                 {/* <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.0833 12.25H2.91667C2.60725 12.25 2.3105 12.1271 2.09171 11.9083C1.87292 11.6895 1.75 11.3928 1.75 11.0833V2.91667C1.75 2.60725 1.87292 2.3105 2.09171 2.09171C2.3105 1.87292 2.60725 1.75 2.91667 1.75H9.33333L12.25 4.66667V11.0833C12.25 11.3928 12.1271 11.6895 11.9083 11.9083C11.6895 12.1271 11.3928 12.25 11.0833 12.25Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M9.91683 12.25V7.58331H4.0835V12.25" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
@@ -156,8 +156,8 @@ const Navbar = () => {
                                     <path d="M7 8.75C7.9665 8.75 8.75 7.9665 8.75 7C8.75 6.0335 7.9665 5.25 7 5.25C6.0335 5.25 5.25 6.0335 5.25 7C5.25 7.9665 6.0335 8.75 7 8.75Z" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg> */}
                             </button>
-                            <button className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-gray-800 bg-white focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
-                                <p>Documentation</p>
+                            <button onClick={(e)=>navigate('/apis', {replace:true})} className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-gray-800 bg-white focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
+                                <p>APIs</p>
                                 {/* <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.25 8.75V11.0833C12.25 11.3928 12.1271 11.6895 11.9083 11.9083C11.6895 12.1271 11.3928 12.25 11.0833 12.25H2.91667C2.60725 12.25 2.3105 12.1271 2.09171 11.9083C1.87292 11.6895 1.75 11.3928 1.75 11.0833V8.75" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M9.91683 4.66667L7.00016 1.75L4.0835 4.66667" stroke="#1F2937" strokeLinecap="round" strokeLinejoin="round" />
@@ -165,8 +165,8 @@ const Navbar = () => {
                                 </svg> */}
                             </button>
                             {/* Save button */}
-                            <button onClick={(e)=>navigate('/apis', {replace:true})} className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">
-                                <p>APIs</p>
+                            <button onClick={(e)=>window.open('https://www.postman.com/restless-flare-713473/workspace/api-fest-team-42')} className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">
+                                <p>Postman</p>
                                 {/* <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.0833 12.25H2.91667C2.60725 12.25 2.3105 12.1271 2.09171 11.9083C1.87292 11.6895 1.75 11.3928 1.75 11.0833V2.91667C1.75 2.60725 1.87292 2.3105 2.09171 2.09171C2.3105 1.87292 2.60725 1.75 2.91667 1.75H9.33333L12.25 4.66667V11.0833C12.25 11.3928 12.1271 11.6895 11.9083 11.9083C11.6895 12.1271 11.3928 12.25 11.0833 12.25Z" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
                                     <path d="M9.91683 12.25V7.58331H4.0835V12.25" stroke="white" strokeLinecap="round" strokeLinejoin="round" />
