@@ -1,5 +1,7 @@
-# API-Fest-2022-Team 42
-
+# SADS APIs
+  
+If you're wondering about the funky name, just look at our initials. 
+  
 ## Team Lead: 
 - Surya Sekhar Datta
 ## Team Members: 
