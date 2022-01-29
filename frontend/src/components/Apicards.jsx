@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 
 const obdec = require('../assets/img/obdec.jpg')
 const trans = require('../assets/img/translate.jpg')
+const pdf = require('../assets/img/pdf.jpg')
 
 const products = [
     {
@@ -22,7 +23,16 @@ const products = [
         imageAlt: "Enter a text to see the translate live",
         price: '$ 0.00 (PS: We are free!)',
         color: '#000000', 
-    }
+    },
+    {
+        id: 3,
+        name: 'We ♥️ PDFs',
+        href: '/apipage/pdf',
+        imageSrc: pdf,
+        imageAlt: "Upload Images and get a pdf as output",
+        price: '$ 0.00 (PS: We are free!)',
+        color: '#000000',
+    },
     // More products...
   ]
  

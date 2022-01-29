@@ -112,7 +112,7 @@ const Translate = () => {
                                     <div className="bg-gray-200 text-gray-600 dark:bg-gray-700 rounded text-xs leading-3 py-2 px-3">Interface</div>
                                 </div> */}
                                 <p className="py-2 px-4 mb-4 rounded-lg bg-indigo-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 ">
-                                Input Language:
+                                Input Language
                                 </p>
                                 <label className="text-gray-700" htmlFor="name">
                                     <textarea className="flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-xl text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-indigo-800 focus:border-transparent" id="input" placeholder="here we go..." name="iLang" rows={10} cols={60} defaultValue={""} />
@@ -150,7 +150,7 @@ const Translate = () => {
                                     </svg>
                                 </div> */}
                                 <p className="py-2 px-4 mb-4 rounded-lg bg-indigo-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 ">
-                                Output Language:
+                                Output Language
                                 </p>
                                 <label className="text-gray-700" htmlFor="name">
                                     <textarea className="flex-1 border border-gray-300 w-full py-2 px-4 bg-white text-xl text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-indigo-800 focus:border-transparent" id="input" placeholder="here you go..." name="iLang" rows={10} cols={60} defaultValue={""} />
