@@ -17,4 +17,4 @@ psycopg2-binary==2.9.3
 whitenoise
 gunicorn
 python-decouple==3.5
-smtplib
+secure-smtplib
