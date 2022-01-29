@@ -5,26 +5,38 @@ import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 import validator from 'validator'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import fs from 'fs'
+// import fs from 'fs'
 
 const logo = require('../../assets/img/pdf.jpg');
 
-const pdfapi = () => {
-    var formdata = new FormData();
-    formdata.append("image", fileInput.files[0], "/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/image.png");
-    formdata.append("image", fileInput.files[0], "/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/unknown.png");
+// const pdfapi = () => {
+//     var axios = require('axios');
+//     var FormData = require('form-data');
+//     var fs = require('fs');
+//     var data = new FormData();
+//     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/image.png'));
+//     data.append('image', fs.createReadStream('/Users/surya/Desktop/Code/API-Fest-22-Team-42/backend/api/images/unknown.png'));
+//     data.append('email', 'something@mail.com');
 
-    var requestOptions = {
-    method: 'POST',
-    body: formdata,
-    redirect: 'follow'
-    };
+//     var config = {
+//     method: 'post',
+//     url: '127.0.0.1:8000/api/imagetopdf/',
+//     headers: { 
+//         ...data.getHeaders()
+//     },
+//     data : data
+//     };
 
-    fetch("127.0.0.1:8000/api/imagetopdf/", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-}
+//     axios(config)
+//     .then(function (response) {
+//     console.log(JSON.stringify(response.data));
+//     })
+//     .catch(function (error) {
+//     console.log(error);
+// });
+
+
+// }
 
 var emailDone = '';
 
@@ -33,7 +45,7 @@ const PdfCombiner = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [emailError, setEmailError] = useState('')
-
+    const email = useState('')
     const validateEmail = (e) => {
       var email = e.target.value
     
