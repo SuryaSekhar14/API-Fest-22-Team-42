@@ -1,4 +1,4 @@
-import {Hero, Navbar, Footer, Stats} from '../components/index'
+import {Hero, Navbar, Footer, Stats, Company} from '../components/index'
 
 const MainLayout = (props) => {
   return (
@@ -6,6 +6,7 @@ const MainLayout = (props) => {
       <Navbar />
       <Hero />
       <Stats />
+      <Company />
       <Footer />
     </div>
   );

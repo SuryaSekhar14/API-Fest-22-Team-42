@@ -7,3 +7,5 @@ export {default as Apicards} from './Apicards';
 export {default as OcrComp} from './OCR/OcrComp';
 export {default as Translate} from './Translate/Translate';
 export {default as Pdfcombiner} from './PDF/PdfCombiner';
+export {default as Company} from './Company';
+export {default as Aiartist} from './AIArtist/aiartist';

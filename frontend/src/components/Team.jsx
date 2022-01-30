@@ -26,7 +26,7 @@ const Team = () => {
                             {/* <p className="text-base leading-6 mt-2 text-gray-800">Designer</p> */}
                         </div>
                     </div>
-                    <div className="lg:w-96 w-80">
+                    <div className="lg:w-96 w-80" onClick={(e)=>window.open('https://itisdb.github.io')}>
                         <img src={dhritesh} className="h-72 w-full object-cover object-center rounded-t-md" alt="woman in black dress" />
                         <div className="bg-white shadow-lg rounded-md py-4 text-center">
                             <p className="text-base font-medium leading-6 text-gray-600">Dhritesh Bhagat</p>

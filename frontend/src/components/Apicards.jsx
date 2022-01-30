@@ -4,7 +4,8 @@ import {useNavigate} from 'react-router-dom'
 const obdec = require('../assets/img/features1.png')
 const trans = require('../assets/img/translate.jpg')
 const pdf = require('../assets/img/pdf.jpg')
-
+const aiartists = require('../assets/img/aiartist.jpg')
+const barterlink = require('../assets/img/barterlink.jpg')
 const products = [
     {
       id: 1,
@@ -33,6 +34,24 @@ const products = [
         price: '$ 0.00 (PS: We are free!)',
         color: '#000000',
     },
+    {
+        id: 4,
+        name: 'AI Generated Art',
+        href: '/apipage/aiartist',
+        imageSrc: aiartists,
+        imageAlt: "AI Generated Art using VQGAN and CLIP",
+        price: '$ 0.00 (PS: We are free!)',
+        color: '#000000',
+    },
+    {
+        id: 5,
+        name: 'BarterLink',
+        href: '/api/barterlink',
+        imageSrc: barterlink,
+        imageAlt: "BarterLink, a place for all your crypto needs.",
+        price: '$ 0.00 (PS: We are free!)',
+        color: '#000000',
+    },
     // More products...
   ]
  
@@ -47,14 +66,14 @@ const Apicards = () => {
             {products.map((product) => (
                 <div className="shadow-2xl rounded-lg">
                 <div key={product.id} onClick={(e)=>navigate(product.href,{replace:true})} className="group relative">
-                <div className="h-full bg-gray-200 aspect-w-1 aspect-h-1 border rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                     <img
                     src={product.imageSrc}
                     alt={product.imageAlt}
-                    className="object-center object-cover w-full h-full rounded-lg"
+                    className="w-full h-full object-center object-cover rounded-lg lg:w-full lg:h-full"
                     />
                 </div>
-                <div className="mt-4 flex justify-center">
+                <div className="mt-4 flex justify-center text-center">
                     <div>
                     <h3 className="text-2xl font-semibold text-gray-900 mb-1">
                         <a href={product.href}>
@@ -62,7 +81,8 @@ const Apicards = () => {
                         {product.name}
                         </a>
                     </h3>
-                    <p className="text-sm font-medium text-gray-700 mb-4">{product.price}</p>
+                    <p className="text-sm font-medium text-gray-700">{product.price}</p>
+                    <p className="text-sm font-base text-gray-500 mb-4 mt-2 mr-4 ml-4">{product.imageAlt}</p>
                     </div>
                 </div>
                 </div>

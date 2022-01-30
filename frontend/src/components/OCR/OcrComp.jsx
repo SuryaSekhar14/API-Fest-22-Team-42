@@ -1,13 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 // import validator from 'validator'
+import { useNavigate } from 'react-router-dom';
 
 const logo = require('../../assets/img/features1.png');
 
+var eid='';
 const OcrComp = () => {
-
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+    const [emailModal, setEmailModal] = useState(false);
     // const [emailError, setEmailError] = useState('')
     // const validateEmail = (e) => {
     //   var email = e.target.value
@@ -28,7 +32,37 @@ const OcrComp = () => {
     }
 
     const onSubmit = (files, allFiles) => {
+        console.log(files)
+        ocrapi(files)
         allFiles.forEach(f => f.remove())
+    }
+
+    const ocrapi = (files) => {
+        var axios = require('axios');
+        var FormData = require('form-data');
+        // var fs = require('fs');
+        var data = new FormData();
+        files.map(data.append('image', files[0]));
+
+        var config = {
+        method: 'post',
+        url: 'https://sads-apis-backend.herokuapp.com/api/ocr/',
+        headers: { 
+        },
+        data : data
+        };
+
+        axios(config)
+        .then(function(response) {
+        console.log(JSON.stringify(response.data));
+        eid=response.data.text;
+        setEmailModal(true);
+        })
+        .catch(function(error) {
+        console.log(error);
+        setShowModal(true);
+        });
+
     }
 
     const getFilesFromEvent = e => {
@@ -62,6 +96,97 @@ const OcrComp = () => {
     return (
         <>
             <div className="w-full bg-white py-10">
+                {/*Modal Code*/}
+               {showModal ? (
+                    <>
+                    <div
+                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                    >
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                        {/*content*/}
+                        <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            {/*header*/}
+                            <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                            <h3 className="text-2xl font-semibold text-gray-500">
+                                Email Error
+                            </h3>
+                            <button
+                                className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                onClick={() => setShowModal(false)}
+                            >
+                                <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                ×
+                                </span>
+                            </button>
+                            </div>
+                            {/*body*/}
+                            <div className="relative p-6 flex-auto">
+                            <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                                Please enter a valid image before trying to OCRise it.
+                                We are still developing so we might come up with a new technology to decode it. We are not far Away.
+                            </p>
+                            </div>
+                            {/*footer*/}
+                            <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                            <button
+                                className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={() => setShowModal(false)}
+                            >
+                                Close
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                    </>
+                ) : null}
+                {emailModal ? (
+                    <>
+                    <div
+                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                    >
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                        {/*content*/}
+                        <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            {/*header*/}
+                            <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                            <h3 className="text-2xl font-semibold text-gray-500">
+                                Text Recognition Result
+                            </h3>
+                            <button
+                                className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                onClick={() => setShowModal(false)}
+                            >
+                                <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                ×
+                                </span>
+                            </button>
+                            </div>
+                            {/*body*/}
+                            <div className="relative p-6 flex-auto">
+                            <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                                {eid}
+                            </p>
+                            </div>
+                            {/*footer*/}
+                            <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                            <button
+                                className="text-green-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button"
+                                onClick={() => navigate('/',{replace:true})}
+                            >
+                                Close
+                            </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                    </>
+                ) : null}
+
                 <div className="container mx-auto px-6 flex items-start justify-center">
                     <div className="w-full">
                         {/* Card is full width. Use in 12 col grid for best view. */}

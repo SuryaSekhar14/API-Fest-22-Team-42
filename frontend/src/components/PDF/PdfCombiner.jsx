@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const logo = require('../../assets/img/pdf.jpg');
 
-var emailDone = false;
+// var emailDone = false;
 var eid = '';
 const PdfCombiner = () => {
     const navigate = useNavigate();
@@ -35,13 +35,13 @@ const PdfCombiner = () => {
 
     const onSubmit = (files, allFiles) => {
         if (emailError === 'Valid Email (づ￣ 3￣)づ') {
-            emailDone = true;
+            // emailDone = true
             // console.log(allFiles)
             // console.log(eid)
             setEmailModal(true)
             pdfapi(files, eid)
         } else {
-            emailDone = false;
+            // emailDone = false
             setShowModal(true)
             // console.log(emailDone)
             // console.log(files)
@@ -72,10 +72,10 @@ const PdfCombiner = () => {
         };
 
         axios(config)
-        .then(function (response) {
+        .then((response) => {
         console.log(JSON.stringify(response.data));
         })
-        .catch(function (error) {
+        .catch((error) => {
         console.log(error);
     });
 

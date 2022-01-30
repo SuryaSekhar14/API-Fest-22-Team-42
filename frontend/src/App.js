@@ -1,5 +1,5 @@
 import './App.css';
-import {MainLayout, Error, Team, Apis, Ocr, Trans, PDF} from './pages/index';
+import {BarterLink, MainLayout, Error, Team, Apis, Ocr, Trans, PDF, AI} from './pages/index';
 import {Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -14,6 +14,8 @@ function App() {
         <Route path='/apipage/ocr' element={<Ocr />} />
         <Route path='/apipage/translate' element={<Trans/>} />
         <Route path='/apipage/pdf' element={<PDF/>}/>
+        <Route path='/apipage/aiartist' element={<AI/>}/>
+        <Route path='/api/barterlink' element={<BarterLink/>}/>
         <Route path="*" element={<Error/>} />
       </Routes>
     </div>

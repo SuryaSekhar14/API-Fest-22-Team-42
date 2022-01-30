@@ -5,3 +5,5 @@ export {default as Apis} from './Apis';
 export {default as Ocr} from './apipages/Ocr';
 export {default as Trans} from './apipages/Trans';
 export {default as PDF} from './apipages/Pdf'
+export {default as AI} from './apipages/AI'
+export {default as BarterLink} from './apipages/Barterlink'
